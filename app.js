@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 require('dotenv').config();
@@ -17,5 +18,8 @@ mongoose
   .catch((err) => {
     console.log('Something went wrong connecting to database.', err);
   });
+
+// MiddleWares
+app.use(bodyParser.json());
 
 module.exports = app;
