@@ -2,15 +2,16 @@ const express = require('express');
 const router = express.Router();
 
 const secretCtrl = require('../controllers/secret');
+const auth = require('../middleware/auth');
 
-router.get('/', secretCtrl.getAllSecrets);
+router.get('/', auth, secretCtrl.getAllSecrets);
 
-router.post('/', secretCtrl.createSecret);
+router.post('/', auth, secretCtrl.createSecret);
 
-router.get(':id', secretCtrl.getOneSecret);
+router.get(':id', auth, secretCtrl.getOneSecret);
 
-router.put(':id', secretCtrl.updateSecret);
+router.put(':id', auth, secretCtrl.updateSecret);
 
-router.delete(':id', secretCtrl.deleteSecret);
+router.delete(':id', auth, secretCtrl.deleteSecret);
 
 module.exports = router;
