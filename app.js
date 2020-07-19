@@ -21,7 +21,10 @@ mongoose
 
 // Routes
 const secretRoutes = require('./routes/secret');
+const userRoutes = require('./routes/user');
+
 app.use('api/secret', secretRoutes);
+app.use('api/auth', userRoutes);
 
 // MiddleWares
 app.use(bodyParser.json());
