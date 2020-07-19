@@ -19,6 +19,10 @@ mongoose
     console.log('Something went wrong connecting to database.', err);
   });
 
+// Routes
+const secretRoutes = require('./routes/secret');
+app.use('api/secret', secretRoutes);
+
 // MiddleWares
 app.use(bodyParser.json());
 
