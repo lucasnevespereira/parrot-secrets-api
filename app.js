@@ -19,16 +19,17 @@ mongoose
     console.log('Something went wrong connecting to database.', err);
   });
 
+// Body Parser
+app.use(bodyParser.json());
+
 // Routes
 const secretRoutes = require('./routes/secret');
 const userRoutes = require('./routes/user');
 
-app.use('api/secret', secretRoutes);
-app.use('api/auth', userRoutes);
+app.use('/api/secret', secretRoutes);
+app.use('/api/auth', userRoutes);
 
-// MiddleWares
-app.use(bodyParser.json());
-
+// Cors
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader(
