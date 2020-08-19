@@ -6,6 +6,21 @@ require('dotenv').config();
 
 const app = express();
 
+// Cors
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization'
+  );
+  res.setHeader(
+    'Access-Control-Allow-Methods',
+    'GET, POST, PUT, DELETE, PATCH, OPTIONS'
+  );
+  next();
+});
+
+
 // Setup Mongoose
 mongoose
   .connect(process.env.DB_URI, {
@@ -29,18 +44,6 @@ const userRoutes = require('./routes/user');
 app.use('/api/secret', secretRoutes);
 app.use('/api/auth', userRoutes);
 
-// Cors
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization'
-  );
-  res.setHeader(
-    'Access-Control-Allow-Methods',
-    'GET, POST, PUT, DELETE, PATCH, OPTIONS'
-  );
-  next();
-});
+
 
 module.exports = app;
