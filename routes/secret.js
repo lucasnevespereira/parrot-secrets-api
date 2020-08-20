@@ -6,7 +6,7 @@ const auth = require('../middleware/auth');
 
 router.get('/', auth, secretCtrl.getAllSecrets);
 
-router.post('/', auth, secretCtrl.createSecret);
+router.post('/',  auth, secretCtrl.createSecret);
 
 router.get(':id', auth, secretCtrl.getOneSecret);
 

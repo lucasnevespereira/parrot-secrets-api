@@ -7,11 +7,13 @@ exports.getAllSecrets = (req, res, next) => {
 };
 
 exports.createSecret = (req, res, next) => {
+  console.log(req.body);
   delete req.body._id;
   const secret = new Secret({
-    ...req.body,
+    content: req.body.content,
+    creator: req.userData.userId
   });
-
+  
   secret
     .save()
     .then(() => res.status(201).json({ message: 'Secret was created' }))
