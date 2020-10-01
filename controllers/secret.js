@@ -11,7 +11,8 @@ exports.createSecret = (req, res, next) => {
   delete req.body._id;
   const secret = new Secret({
     content: req.body.content,
-    creator: req.userData.userId
+    creator: req.userData.userId,
+    createdAt: req.body.createdAt
   });
   
   secret
