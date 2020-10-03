@@ -37,6 +37,15 @@ exports.getUserSecrets = (req, res) => {
       .catch(err => res.status(404).json({err}))
 }
 
+/*exports.deleteUserSecrets = (req, res) => {
+  Secret.deleteMany({creator : { $in: [req.params.userId]}})
+      .then((res) => {
+        console.log("SEcrets removed " + res.toString());
+        res.status(200).json({message: "Removed user secrets"})
+      })
+      .catch(err => res.status(404).json({err}));
+}*/
+
 exports.updateSecret = (req, res) => {
   Secret.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
     .then(() => res.status(200).json({ message: 'Secret updated' }))

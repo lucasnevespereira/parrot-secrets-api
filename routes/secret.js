@@ -12,6 +12,8 @@ router.get('/:id', auth, secretCtrl.getOneSecret);
 
 router.get('/userSecrets/:userId', auth, secretCtrl.getUserSecrets);
 
+// router.delete('/userSecrets/:userID', auth, secretCtrl.deleteUserSecrets);
+
 router.put('/:id', auth, secretCtrl.updateSecret);
 
 router.delete('/:id', auth, secretCtrl.deleteSecret);
