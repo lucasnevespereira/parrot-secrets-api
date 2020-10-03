@@ -1,12 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 require('dotenv').config();
 
 const app = express();
 
 // Cors
+app.use(cors());
+
+/*
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader(
@@ -19,6 +23,7 @@ app.use((req, res, next) => {
   );
   next();
 });
+*/
 
 
 // Setup Mongoose

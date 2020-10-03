@@ -10,6 +10,8 @@ router.post('/',  auth, secretCtrl.createSecret);
 
 router.get(':id', auth, secretCtrl.getOneSecret);
 
+router.get('/userSecrets/:userId', auth, secretCtrl.getUserSecrets);
+
 router.put(':id', auth, secretCtrl.updateSecret);
 
 router.delete(':id', auth, secretCtrl.deleteSecret);
