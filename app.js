@@ -28,7 +28,7 @@ app.use((req, res, next) => {
 
 // Setup Mongoose
 mongoose
-  .connect(process.env.DB_URI, {
+  .connect("mongodb+srv://admin-lucas:"+process.env.DB_PASS+"@cluster0-qj1yo.mongodb.net/pscrects?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
